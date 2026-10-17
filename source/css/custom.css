@@ -1,0 +1,20 @@
+:root { --article-font-color: #303b4b; }
+#page-header.full_page { background-color: #142b51; background-position: center; }
+#page-header.full_page #site-info { top: 50%; bottom: auto; left: 50%; width: 100%; padding: 0 20px; transform: translate(-50%, -50%); text-align: center; }
+#site-title { text-shadow: 0 2px 12px rgba(0, 0, 0, .75); }
+#page-header.post-bg { height: 360px; }
+.layout { max-width: 1380px; }
+#article-container { font-size: 16px; line-height: 1.9; }
+#article-container pre, #article-container figure.highlight { line-height: 1.6; }
+#article-container mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: 10px 0; }
+#recent-posts > .recent-post-item .post_cover img { object-fit: cover; }
+#recent-posts > .recent-post-item > .recent-post-info > .content { -webkit-line-clamp: 3; }
+[data-theme="dark"] #article-container { color: #d4d9e1; }
+@media (max-width: 768px) {
+  #page-header.full_page { background-size: auto 100%; background-position: 73% center; }
+  #page-header.post-bg { height: 280px; }
+  #article-container { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+}

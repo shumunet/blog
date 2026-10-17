@@ -1,0 +1,16 @@
+# 在 link_list 下添加站点，保持缩进一致；取消下面示例的注释并替换信息即可。
+- class_name: 友情链接
+  class_desc: 在这里遇见更多有趣的博客。
+  link_list:
+    - name: G3ng4r
+      link: https://blog.g3ng4r.top/
+      avatar: https://q.qlogo.cn/g?b=qq&nk=2977026820&s=100
+      descr: SIPC-web 大手子
+    - name: GuQing
+      link: https://baiguqing.github.io/
+      avatar: https://q.qlogo.cn/g?b=qq&nk=3268983565&s=100
+      descr: SIPC-reverse 大手子
+    - name: ddanggui
+      link: https://ddanggui.top/
+      avatar: https://q.qlogo.cn/g?b=qq&nk=2865307417&s=100
+      descr: SIPC-crypto 大手子

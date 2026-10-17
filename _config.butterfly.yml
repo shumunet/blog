@@ -1,0 +1,102 @@
+# Butterfly 5.5.4 — local artwork, explicit descriptions, readable technical posts.
+nav:
+  display_title: true
+  fixed: true
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  友链: /link/ || fas fa-link
+  关于: /about/ || fas fa-user
+social:
+  fab fa-bilibili: https://space.bilibili.com/483370591 || Bilibili
+avatar:
+  img: /img/avatar.webp
+  effect: false
+favicon: /img/avatar.webp
+index_img: /img/furina-hero.webp
+default_top_img: /img/furina-hero.webp
+archive_img: /img/furina-hero.webp
+index_top_img_height: 100vh
+index_layout: 3
+index_post_content:
+  method: 1
+  length: 120
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  default_cover: /img/covers/anime-01.webp
+subtitle:
+  enable: true
+  effect: false
+  source: false
+  sub:
+    - "Let curiosity lead where certainty ends."
+post_meta:
+  page:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: true
+toc:
+  post: true
+  number: false
+  expand: true
+code_blocks:
+  theme: darker
+  copy: true
+  language: true
+  word_wrap: false
+  height_limit: false
+math:
+  use: mathjax
+  per_page: true
+search:
+  use: local_search
+  placeholder: 搜索文章
+aside:
+  card_author:
+    description: Let curiosity lead where certainty ends.
+    button:
+      enable: true
+      icon: fab fa-bilibili
+      text: Bilibili
+      link: https://space.bilibili.com/483370591
+  card_announcement:
+    enable: false
+  card_archives:
+    format: YYYY 年 MM 月
+footer:
+  copyright:
+    enable: true
+    version: true
+  owner:
+    since: 2026
+  custom_text:
+post_copyright:
+  enable: false
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 1
+font:
+  global_font_size: 16px
+  code_font_size: 14px
+  font_family: '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif'
+  code_font_family: '"SFMono-Regular", Consolas, "Liberation Mono", monospace'
+lazyload:
+  enable: true
+  native: true
+  field: site
+CDN:
+  internal_provider: local
+  third_party_provider: local
+inject:
+  head:
+    - '<link rel="stylesheet" href="/css/custom.css">'
