@@ -1,5 +1,5 @@
 ---
-title: "AtCoder Beginner Contest 481 游记"
+title: "AtCoder Beginner Contest 481 补题"
 description: "整理 AtCoder Beginner Contest 481 的赛后补题，包含题意、解题思路与代码实现。"
 cover: /img/covers/acg-006.jpg
 date: 2026-10-25 11:30:00
