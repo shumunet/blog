@@ -1,8 +1,8 @@
 ---
-title: "状压DP学习笔记"
-description: ""
+title: "状压 DP 学习笔记"
+description: "介绍状态压缩的思想，同时练习一些经典题目。"
 cover: /img/covers/acg-007.jpg
-date: 2026-10-26 15:30:00
+date: 2026-10-26 16:30:00
 categories:
   - 算法竞赛
 tags:
@@ -12,6 +12,8 @@ math: true
 ---
 
 ## 前言
+
+> 更新：更新了简介并更新了一道题。
 
 考虑一个动态规划中遇到的问题：给你 $n$ 个数，有依赖性，比如说我用了第 1 个数就不能用第 3 个数。这时我们显然可以用一个布尔数组表示某个数字能不能继续使用，但是这样的话就会导致可能性非常多，于是我们考虑用整的位信息来表示路径，这样就能节省空间的同时方便我们表达状态。
 
@@ -240,3 +242,80 @@ int main() {
 }
 ```
 
+## [P1171 售货员的难题](https://www.luogu.com.cn/problem/P1171)
+
+这是一道 `TSP 问题`，是状态压缩动态规划的经典问题。
+
+设 $dp_{mask,j}$ 表示从起点到 $j$ 号点且到达时状态为 $mask$ 的最短路，同样的 1 表示该村庄访问过，0 表示没有。
+
+由于每个村庄恰好经过一次，所以 $mask$ 中含有 $i$ 并且没有 $j$ 就能从 $i$  走到 $j$，也就是：
+
+```c++
+dp[mask | (1 << j)][j] =
+    min(dp[mask | (1 << j)][j], dp[mask][i] + s[i][j])
+```
+
+注意距离是**单向的**，因此转移使用 `s[i][j]`，不能假设它等于 `s[j][i]`。
+
+所有村庄都访问后，还需要回到起点，再走一次回起点边就行了。
+
+至于初始化，一开始是 1 号点，最短路显然是 0 ，也就是 $dp_{1,1} = 0$。
+
+$dp$ 数组的更新可以用类似于 `floyd` 的思路来做，也就是枚举中间点。
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define endl '\n'
+
+const ll MAXN = 25;
+const ll MAXS = 1<<21;
+const ll INF = 1e18;
+
+ll n,g[MAXN][MAXN],dp[MAXS][MAXN];
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cin>>n;
+    for(int i=1;i<=n;i++) {
+        for(int j=1;j<=n;j++) {
+            cin>>g[i][j];
+        }
+    }
+    // 访问集合用 0-based 位：村庄 i 对应第 i-1 位
+    // 所以 mask=1 表示只访问了 1 号村庄
+    fill(&dp[0][0], &dp[0][0] + MAXS * MAXN, INF);
+    dp[1][1]=0;
+    int full=(1<<n)-1;
+    for(int mask=1;mask<=full;mask++) {
+        if((mask&1)==0) continue; //必须包含起点
+        for(int u=1;u<=n;u++) {
+            if(dp[mask][u]==INF) continue;
+            for(int v=2;v<=n;v++) {
+                int bit=1<<(v-1);
+                if(mask&bit) continue; //v 已经走过了（因为mask中它的位是 1）
+                int nxt_mask=mask|bit; //访问 v
+                dp[nxt_mask][v]=min(dp[nxt_mask][v],dp[mask][u]+g[u][v]);
+            }
+        }
+    }
+    ll ans=INF;
+    for(int u=2;u<=n;u++) {
+        ans=min(ans,dp[full][u]+g[u][1]);
+    }
+    cout<<ans;
+    return 0;
+}
+```
+
+## 总结
+
+状态压缩动态规划主要分为以下三类：
+
+- 旅行商类
+- 集合类
+- 棋盘类
+
+本文已经涉及了这三类状态压缩动态规划问题。再深一步就是 `插头 DP` 和 `双向搜索` 等复杂技巧了，以后估计也会学学吧喵～
