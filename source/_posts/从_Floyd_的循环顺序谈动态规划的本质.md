@@ -2,7 +2,7 @@
 title: "从 Floyd 的循环顺序谈动态规划的本质"
 description: "看到 CSP-S 2026 不少同学因为 Floyd 的循环顺序挂在 T2，才发现自己也只是记住了写法。从这三重循环出发，重新理解动态规划的状态依赖与转移顺序。"
 cover: /img/covers/acg-008.jpg
-date: 2026-11-02 21:00:00
+date: 2026-11-02 16:30:00
 categories:
   - 算法竞赛
 tags:
