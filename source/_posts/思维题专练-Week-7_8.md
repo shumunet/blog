@@ -1,7 +1,7 @@
 ---
 title: "思维题专练 Week 7-8"
 description: "整理一些思维与构造题，树木又进步了喵～"
-cover: /img/covers/acg-014.jpg
+cover: /img/covers/acg-015.jpg
 date: 2026-11-27 22:00:00
 categories:
   - 算法竞赛
